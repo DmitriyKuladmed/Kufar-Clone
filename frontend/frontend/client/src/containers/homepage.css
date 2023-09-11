@@ -1,0 +1,29 @@
+.announcement-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Create four columns */
+    gap: 20px; /* Add some spacing between items */
+  }
+
+/* Define the styles for the filter button */
+.filter-button {
+  background-color: lightgreen; /* Light green background color */
+  color: black; /* Black text color */
+  padding: 3px 20px; /* Padding for the button */
+  border: none; /* Remove button border */
+  cursor: pointer; /* Add a pointer cursor on hover */
+}
+
+/* Define the styles for the details button */
+.details-button {
+  background-color: lightgreen; /* Light green background color */
+  color: black; /* Black text color */
+  padding: 5px 10px; /* Padding for the button */
+  border: none; /* Remove button border */
+  cursor: pointer; /* Add a pointer cursor on hover */
+}
+
+/* Add hover effect for both buttons */
+.filter-button:hover,
+.details-button:hover {
+  background-color: lightseagreen; /* Lighter green background color on hover */
+}
