@@ -19,7 +19,6 @@ const App = () => {
 
 	useEffect(() => {
 		let interval = setInterval(() => {
-			console.log(document.cookie);
 			checkAuth();
 		}, 2000)
 		return ()=> clearInterval(interval)

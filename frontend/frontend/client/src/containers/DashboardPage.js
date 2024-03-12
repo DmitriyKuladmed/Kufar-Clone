@@ -12,7 +12,6 @@ const DashboardPage = () => {
 	
 	useEffect(() => {
         if (isAuthenticated) {
-			console.log(user.email);
 			const emailQueryParam = user.email ? `?email=${user.email}` : '';
             axios.get('http://127.0.0.1:8000/user_announcements/' + emailQueryParam)
                 .then(response => {

@@ -27,7 +27,6 @@ const Chat = () => {
         const data = await res.json();
     
         if (res.status === 200) {
-          console.log(data);
           setAdData(data)
           
           return data;
@@ -63,7 +62,7 @@ else if (!isAuthenticated){
 } else if (isAuthenticated) {
   return (
     <Layout>
-    <div>
+    <div className='dialogue-container'>
       <div style={{ textAlign: 'center' }} className='message-list'>
       {adData ? (
             <h2>Диалог с <u>{adData.first_name} {adData.last_name}</u></h2>

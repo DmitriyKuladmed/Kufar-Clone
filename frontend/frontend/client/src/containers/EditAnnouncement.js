@@ -66,7 +66,6 @@ const AnnouncementPage = () => {
 			announcementData.append('price', formData.price);
 			announcementData.append('category', selectedCategory);
 			announcementData.append('photo', postimage.photo[0]);
-			console.log(title, first_name, last_name, city, price, selectedCategory, postimage.photo[0]);
 			
 
             await axios.put(`http://127.0.0.1:8000/api/announcement/${Id}/`, announcementData);
@@ -91,7 +90,6 @@ const AnnouncementPage = () => {
             .then((response) => {
               const adData = response.data;
               setAdDetails(adData);
-                console.log(adDetails);
                 
               setFormData({
                 title: adData.title,

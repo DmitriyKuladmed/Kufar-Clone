@@ -57,7 +57,7 @@ const DetailPage = () => {
               <p>Город: {adData.city}</p>
               <p><b>Цена товара: {adData.price} бел. руб.</b></p>
               <Link to={`/chat/${adData.id}`}>
-                <button className="filter-button">Написать продавцу</button>
+                <button className="create-ad-button">Написать продавцу</button>
               </Link>
             </>
           ) : (

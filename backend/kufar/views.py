@@ -17,8 +17,6 @@ from rest_framework.decorators import api_view, permission_classes
 from .models import User, Announcement
 from .api.serializers import UserCreateSerializer, UserSerializer, AnnouncementSerializer
 
-# logger = logging.getLogger(__name__)
-
 
 class RegistrationView(APIView):
 
@@ -45,7 +43,6 @@ class RetrieveUserView(APIView):
         return Response(user.data, status=status.HTTP_200_OK)
 
 
-
 class LoginView(APIView):
     def post(self, request):
         data = request.data
@@ -63,7 +60,7 @@ class LoginView(APIView):
             return Response({'token': token}, status=status.HTTP_200_OK)
         else:
             return Response({'detail': 'No active account found with the given credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-        
+
 
 class AnnouncementImageUpload(APIView):
     parser_classes = [MultiPartParser, FormParser]
@@ -99,7 +96,7 @@ class FilteredAnnouncementList(generics.ListAPIView):
             queryset = queryset.filter(category__name=category)
         
         return queryset
-    
+
 
 class SearchByTitleView(generics.ListAPIView):
     serializer_class = AnnouncementSerializer
@@ -107,7 +104,6 @@ class SearchByTitleView(generics.ListAPIView):
     def get_queryset(self):
         title = self.request.query_params.get('query', None)  # Get the search query from the request
         queryset = Announcement.objects.all()
-        
         if title:
             queryset = queryset.filter(title__icontains=title)
 

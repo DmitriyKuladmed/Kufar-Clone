@@ -17,8 +17,6 @@ const HomePage = () => {
         .get('http://127.0.0.1:8000/api/category/')
         .then((response) => {
             setCategories(response.data['results']);
-            console.log(categories);
-            
         })
         .catch((error) => {
             console.error('Error fetching categories:', error);
@@ -29,7 +27,6 @@ const HomePage = () => {
 
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
-    console.log(selectedCategory)
   };
 
   const handleFilterClick = () => {
@@ -42,9 +39,6 @@ const HomePage = () => {
 	  
 	  const fetchAnnouncements = async () => {
 		try {
-		  const categoryQueryParam = selectedCategory ? `?category=${selectedCategory}` : '';   
-      console.log(categoryQueryParam);
-         
 		  const res = await fetch('http://127.0.0.1:8000/api/announcement/', {
         method: 'GET',
         headers: {
@@ -54,15 +48,12 @@ const HomePage = () => {
 		  
 		  if (res.status === 200) {
 			const data = await res.json();
-			console.log(data);
-      
 			setAnnouncements(data['results']);
 			setLoading(false);
 
 		  } else {
 
 			const errorData = await res.json();
-			console.error('1. Error fetching announcements:', errorData);
 			setLoading(false);
 
 		  }
@@ -85,7 +76,7 @@ const HomePage = () => {
         
         if (res.status === 200) {
           const data = await res.json();
-          setAnnouncements(data);
+          setAnnouncements(data['results']);
           setLoading(false);
         } else {
           const errorData = await res.json();
@@ -118,7 +109,6 @@ const HomePage = () => {
         } else {
   
         const errorData = await res.json();
-        console.error('1. Error fetching announcements:', errorData);
         setLoading(false);
   
         }
@@ -145,7 +135,7 @@ const HomePage = () => {
               type="text"
               placeholder="Поиск по названию"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)} // Handle search input change
+              onChange={(e) => setSearchQuery(e.target.value)}
             />&nbsp;&nbsp;
             <button className="filter-button" onClick={handleSearchClick}>Искать</button>
             <br /><br />
@@ -170,7 +160,7 @@ const HomePage = () => {
                 <p>Опубликовано: {announcement.publication_date}</p>
                 <Link to={`/${announcement.id}`} key={announcement.id}>
                   <div className="announcement-container">
-                    <button className="details-button">Детальнее</button>
+                    <button className="floating-button">Детальнее</button>
                   </div>
                 </Link>
               </div>

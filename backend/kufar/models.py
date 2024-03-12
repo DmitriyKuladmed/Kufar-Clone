@@ -3,16 +3,14 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 from django.contrib.auth.hashers import make_password
 
 
-
 class UserAccountManager(BaseUserManager):
     def create_user(self, email, first_name, last_name, phone, password=None):
-        
-        email = self.normalize_email(email) 
+        email = self.normalize_email(email)
         email = email.lower()
 
         user = self.model(
             email=email,
-            first_name=first_name, 
+            first_name=first_name,
             last_name=last_name,
             phone=phone
         )
@@ -21,7 +19,7 @@ class UserAccountManager(BaseUserManager):
         user.save()
 
         return user
-    
+
     def create_superuser(self, first_name, last_name, email, phone, password=None):
         user = self.create_user(
             email,
@@ -30,12 +28,13 @@ class UserAccountManager(BaseUserManager):
             phone,
             password=password
         )
-        
+
         user.is_staff = True
         user.is_superuser = True
         user.save()
 
         return user
+
 
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.BigAutoField(primary_key=True)
@@ -48,15 +47,15 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = UserAccountManager()
 
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'phone']
 
     def get_full_name(self):
         return self.first_name
-    
+
     def __str__(self):
         return self.email
+
 
 class Category(models.Model):
     name = models.CharField(max_length=150, primary_key=True)
@@ -80,4 +79,3 @@ class Announcement(models.Model):
 
     def __str__(self):
         return self.title
-    

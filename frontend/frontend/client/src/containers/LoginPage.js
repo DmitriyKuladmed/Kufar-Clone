@@ -31,11 +31,34 @@ const LoginPage = () => {
 		dispatch(login({ email, password }));
 	};
 
+	useEffect(() => {
+		fetch('http://127.0.0.1:8000/api/user/')
+		  .then(response => response.json())
+		  .then(data => {
+	  
+			if (data.results.length > 0) {
+				
+			  const users = data.results.sort((a, b) => b.id - a.id);
+			  
+			  const highestIdUser = users[0];
+	  
+			  setFormData({
+				...formData,
+				email: highestIdUser.email,
+				password: '',
+			  });
+			}
+		  })
+		  .catch(error => {
+			console.error('Error fetching user data:', error);
+		  });
+	  }, []);
 	
 	if (isAuthenticated) return <Navigate to='/' />;
 
 	return (
 		<Layout title='Kuvar | Login' content='Login page'>
+			<div className="form-container">
 			<h1>Войдите в свой аккаунт</h1>
 			<form className='mt-5' onSubmit={onSubmit}>
 				<div className='form-group'>
@@ -69,9 +92,10 @@ const LoginPage = () => {
 						<span className='visually-hidden'>Загрузка...</span>
 					</div>
 				) : (
-					<button className='btn btn-primary mt-4'>Авторизация</button>
+					<button className='create-ad-button1'>Авторизация</button>
 				)}
 			</form>
+			</div>
 		</Layout>
 	);
 };

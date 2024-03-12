@@ -62,7 +62,6 @@ const AnnouncementPage = () => {
 			announcementData.append('price', formData.price);
 			announcementData.append('category', selectedCategory);
 			announcementData.append('photo', postimage.photo[0]);
-			console.log(title, first_name, last_name, email, city, price, selectedCategory, postimage.photo[0]);
 			
 
 		  await dispatch(
@@ -111,7 +110,8 @@ const AnnouncementPage = () => {
 
 	return (
 		<Layout title='Kuvar | Объявление' content='Register page'>
-			<h1>Создайте новое объявление</h1>
+			<h1 style={{ textAlign: "center" }}>Создайте новое объявление</h1>
+			<div className="form-container">
 			{message && <p>{message}</p>}
 			<form className='mt-5' onSubmit={onSubmit} encType="multipart/form-data">
 				<div className='form-group'>
@@ -196,10 +196,11 @@ const AnnouncementPage = () => {
 						<span className='visually-hidden'>Загрузка...</span>
 					</div>
 				) : (
-					<button className='btn btn-primary mt-4'>Создать объявление</button>
+					<button className='gradient-button'>Создать объявление</button>
                     
 				)}
 			</form>
+			</div>
             <br /><br />
 		</Layout>
 	);

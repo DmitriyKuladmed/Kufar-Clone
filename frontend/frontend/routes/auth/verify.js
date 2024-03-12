@@ -10,7 +10,6 @@ router.get('/api/users/verify', async (req, res) => {
 	const body = JSON.stringify({
 		token: access,
 	});
-	console.log(body);
 	
 	try {
 		const apiRes = await fetch(`${process.env.API_URL}/api/token/verify/`, {

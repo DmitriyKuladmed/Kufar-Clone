@@ -24,8 +24,6 @@ const RegisterPage = () => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-		console.log(first_name, last_name, email, phone, password);
-		
 		dispatch(register({ first_name, last_name, email, phone, password }));
 	};
 
@@ -33,7 +31,8 @@ const RegisterPage = () => {
 
 	return (
 		<Layout title='Kuvar | Register' content='Register page'>
-			<h1>Зарегистрируйте свою учетную запись</h1>
+			<h1 style={{ textAlign: "center" }}>Зарегистрируйте свою учетную запись</h1>
+			<div className="form-container">
 			<form className='mt-5' onSubmit={onSubmit}>
 				<div className='form-group'>
 					<label className='form-label' htmlFor='first_name'>
@@ -89,7 +88,7 @@ const RegisterPage = () => {
 				</div>
 				<div className='form-group mt-3'>
 					<label className='form-label' htmlFor='password'>
-						Password
+						Пароль
 					</label>
 					<input
 						className='form-control'
@@ -108,6 +107,7 @@ const RegisterPage = () => {
 					<button className='btn btn-primary mt-4'>Зарегестрироваться</button>
 				)}
 			</form>
+			</div>
 		</Layout>
 	);
 };

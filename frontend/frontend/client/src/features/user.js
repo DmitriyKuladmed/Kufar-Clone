@@ -12,7 +12,6 @@ export const register = createAsyncThunk(
 			phone,
 			password,
 		});
-		console.log(body);
 		
 
 		try {
@@ -72,19 +71,18 @@ export const login = createAsyncThunk(
 			email,
 			password,
 		});
+		
 
 		try {
+			
 			const res = await fetch('/api/users/login', {
 				method: 'POST',
 				headers: {
 					Accept: 'application/json',
 					'Content-Type': 'application/json',
-					credentials: 'include',
 				},
-				credentials: 'include',
 				body,
 			});
-			
 			const data = await res.json();
 			
 			
@@ -115,7 +113,6 @@ export const checkAuth = createAsyncThunk(
 
 		const accessToken = localStorage.getItem('accessToken');
 		const refreshToken = localStorage.getItem('refreshToken');
-		console.log('here');
 		
 		const body = JSON.stringify({
 			"token": accessToken,

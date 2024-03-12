@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from 'features/user';
+import styles from '../containers/homepage.css';
 
 const Navbar = () => {
 	const dispatch = useDispatch();
@@ -16,14 +17,7 @@ const Navbar = () => {
 			<li className='nav-item'>
 				<NavLink className='nav-link' to='/announcement'>
 				<button
-					className='create-ad-button'
-					style={{
-						backgroundColor: 'lightgreen',
-						borderRadius: '8px',
-						padding: '2px 10px',
-						border: 'none',
-						cursor: 'pointer',
-					}}>
+					className='create-ad-button'>
 					+ Подать объявление
 					</button>
 				</NavLink>

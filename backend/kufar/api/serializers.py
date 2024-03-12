@@ -57,7 +57,7 @@ class Base64ImageField(serializers.ImageField):
 class UserCreateSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'phone', 'password')
+        fields = ('id', 'first_name', 'last_name', 'email', 'phone', 'password')
 
     def validate(self, data):
         user = User(**data)

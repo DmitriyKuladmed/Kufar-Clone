@@ -1,29 +1,167 @@
 .announcement-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Create four columns */
-    gap: 20px; /* Add some spacing between items */
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
 
-/* Define the styles for the filter button */
 .filter-button {
-  background-color: lightgreen; /* Light green background color */
-  color: black; /* Black text color */
-  padding: 3px 20px; /* Padding for the button */
-  border: none; /* Remove button border */
-  cursor: pointer; /* Add a pointer cursor on hover */
+  background-color: lightgreen;
+  color: black;
+  padding: 3px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
-/* Define the styles for the details button */
 .details-button {
-  background-color: lightgreen; /* Light green background color */
-  color: black; /* Black text color */
-  padding: 5px 10px; /* Padding for the button */
-  border: none; /* Remove button border */
-  cursor: pointer; /* Add a pointer cursor on hover */
+  background-color: lightgreen;
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
-/* Add hover effect for both buttons */
 .filter-button:hover,
 .details-button:hover {
-  background-color: lightseagreen; /* Lighter green background color on hover */
+  background-color: lightseagreen;
+}
+
+.floating-button {
+  text-decoration: none;
+  display: inline-block;
+  width: 140px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 45px;
+  margin: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+}
+.floating-button:hover {
+  background: #2EE59D;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
+}
+
+.create-ad-button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 1px 15px;
+  margin: 0px 5px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #0000FF;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  color: #0000FF;
+  transition: .2s ease-in-out;
+}
+.create-ad-button:before {
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .5));
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: -8px;
+  left: -75px;
+  transform: skewX(-45deg);
+}
+.create-ad-button:hover {
+  background: #0000FF;
+  color: #fff;
+}
+.create-ad-button:hover:before {
+  left: 150px;
+  transition: .5s ease-in-out;
+}
+
+
+.gradient-button {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  padding: 2px 20px;
+  margin: 10px 0px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+  background-size: 200% auto;
+  transition: .5s;
+}
+.gradient-button:hover {
+  background-position: right center;
+}
+
+.announcement-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+
+.announcement-container {
+  border: 2px solid #0000FF; 
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.floating-button {
+  background-color: #4ce085;
+  color: black;
+  padding: 0px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.form-container {
+  width: 50%;
+  margin-left: 320px;
+}
+
+
+.create-ad-button1 {
+  text-decoration: none;
+  display: inline-block;
+  padding: 3px 15px;
+  margin: 10px 5px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #0000FF;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  color: #0000FF;
+  transition: .2s ease-in-out;
+}
+.create-ad-button1:before {
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .5));
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: -8px;
+  left: -75px;
+  transform: skewX(-45deg);
+}
+.create-ad-button1:hover {
+  background: #0000FF;
+  color: #fff;
+}
+.create-ad-button1:hover:before {
+  left: 150px;
+  transition: .5s ease-in-out;
 }
